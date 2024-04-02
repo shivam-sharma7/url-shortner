@@ -5,7 +5,7 @@ This is a full stack URL Shortner web app
 
  <div align="left"> 
 <img src="https://img.shields.io/badge/-ReactJs-61DAFB?logo=react&logoColor=white&style=for-the-badge">
- <!-- <img src="https://img.shields.io/badge/TailwindCSS-1572B6.svg?style=for-the-badge&logo=tailwindcss&logoColor=white"> -->
+ <img src="https://img.shields.io/badge/TailwindCSS-1572B6.svg?style=for-the-badge&logo=tailwindcss&logoColor=white">
  <img src="https://img.shields.io/badge/TypeScript-1572B6.svg?style=for-the-badge&logo=TypeScript&logoColor=white"> 
   <img src="https://img.shields.io/badge/-Express.js-E34F28?logo=express&logoColor=white&style=for-the-badge">
    <img src="https://img.shields.io/badge/Nodejs-E3428?logo=node.js&logoColor=white&style=for-the-badge">
@@ -16,7 +16,7 @@ This is a full stack URL Shortner web app
 ## Set up backend
 >You need to cretae a .env file in server directory and set following string.
 ```
-MONGO_DB=mongodb+srv://<username>:<password>@hotel-booking.iybejcf.mongodb.net/?retryWrites=true&w=majority
+MONGO_DB=mongodb+srv://<username>:<password>@url-shortner.ijruark.mongodb.net/?retryWrites=true&w=majority&appName=url-shortner
 
 PORT=5000
 ```
