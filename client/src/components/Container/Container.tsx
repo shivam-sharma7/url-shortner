@@ -1,8 +1,8 @@
-
+import FormContainer from "./FormContainer"
 
 const Container = () => {
   return (
-    <div>Container</div>
+     <FormContainer />
   )
 }
 
