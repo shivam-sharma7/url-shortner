@@ -1,5 +1,5 @@
 ## URL Shortner 
-This is a full stack URL Shortner web app
+ This is a URL shortener web-based application tool designed to condense long website addresses into shorter, more manageable links. 
 
 ## Tech stack used
 
@@ -7,6 +7,7 @@ This is a full stack URL Shortner web app
 <img src="https://img.shields.io/badge/-ReactJs-61DAFB?logo=react&logoColor=white&style=for-the-badge">
  <img src="https://img.shields.io/badge/TailwindCSS-1572B6.svg?style=for-the-badge&logo=tailwindcss&logoColor=white">
  <img src="https://img.shields.io/badge/TypeScript-1572B6.svg?style=for-the-badge&logo=TypeScript&logoColor=white"> 
+  <img src="https://img.shields.io/badge/Vitest-1572B6.svg?style=for-the-badge&logo=Vitest&logoColor=white"> 
   <img src="https://img.shields.io/badge/-Express.js-E34F28?logo=express&logoColor=white&style=for-the-badge">
    <img src="https://img.shields.io/badge/Nodejs-E3428?logo=node.js&logoColor=white&style=for-the-badge">
     <img src="https://img.shields.io/badge/MongoDB-E3428?logo=mongoDB&logoColor=white&style=for-the-badge">
@@ -24,7 +25,7 @@ Clone the project
 ```bash
 git clone  https://github.com/shivam-sharma7/url-shortner.git
 ````
-Navigate to backend directory
+Navigate to server directory
 ```bash
 cd server
 ```
@@ -35,4 +36,20 @@ npm install
 run start command
 ```
 npm run dev
+```
+Navigate to client directory
+```bash
+cd client
+```
+Install dependencies
+```bash
+npm install
+```
+Run start command
+```bash
+npm run dev
+```
+Run test command
+```bash
+npm run test
 ```
