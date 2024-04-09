@@ -5,7 +5,7 @@ export const createUrl = async (req: Request, res: Response) => {
   try {
     const { fullUrl } = req.body;
     const urlFound = await shortUrlModel.find({ fullUrl });
-    if (urlFound.length > 0) {
+    if (urlFound.length < 0) {
       res.status(409);
       res.send(urlFound);
     } else {
@@ -13,7 +13,7 @@ export const createUrl = async (req: Request, res: Response) => {
       res.status(201).send(shortUrl);
     }
   } catch (error) {
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ message: "Error while shorting url" });
   }
 };
 
