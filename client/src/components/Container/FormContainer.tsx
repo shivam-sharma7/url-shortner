@@ -1,9 +1,23 @@
 import { useState } from 'react'
 import axios from 'axios'
 import { apiUrl } from '../../api'
+import { toast, ToastContainer } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
+ 
 
 const FormContainer = () => {
+
 const [fullUrl, setFullUrl] = useState('')
+
+const notify = () => toast.success('URL has been shortened', {
+  position: "top-left",
+  autoClose: 2000,
+  hideProgressBar: false,
+  closeOnClick: true,
+  pauseOnHover: true,
+  draggable: true,
+  progress: undefined,
+});
 
 const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
@@ -36,8 +50,9 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                   value={fullUrl}
                   onChange={(e) => setFullUrl(e.target.value)}
                   />
-                  <button type="submit" className="absolute top-0 end-0
+                  <button type="submit" onClick={notify} className="absolute top-0 end-0
                   bg-green-600 hover:bg-blue-700 p-4 rounded overflow-hidden">Shorten URL</button>
+                  <ToastContainer />
               </div>
             </div>
            </form>
