@@ -11,6 +11,7 @@ export const createUrl = async (req: Request, res: Response) => {
     } else {
       const shortUrl = await shortUrlModel.create({ fullUrl });
       res.status(201).send(shortUrl);
+      shortUrl.save();
     }
   } catch (error) {
     res.status(500).json({ message: "Error while shorting url" });

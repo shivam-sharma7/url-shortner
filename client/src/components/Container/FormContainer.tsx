@@ -4,8 +4,11 @@ import { apiUrl } from '../../api'
 import { toast, ToastContainer } from 'react-toastify'
 import 'react-toastify/dist/ReactToastify.css'
  
+type formContainerProps = {
+  updateReloadState: () => void
+}
 
-const FormContainer = () => {
+const FormContainer = ({ updateReloadState }: formContainerProps) => {
 
 const [fullUrl, setFullUrl] = useState('')
 
@@ -27,6 +30,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
            fullUrl: fullUrl
       });
       setFullUrl('')
+      updateReloadState()
     
     } catch (error) {
       console.log(error)

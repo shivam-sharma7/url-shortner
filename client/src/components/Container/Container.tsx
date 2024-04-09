@@ -33,7 +33,7 @@ const Container = () => {
 
   return (
     <> 
-    <FormContainer />
+    <FormContainer updateReloadState={updateReloadState} />
     <DataTable data={data} updateReloadState={updateReloadState} />
   </>
 );
