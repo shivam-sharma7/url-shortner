@@ -15,6 +15,12 @@ export type UrlData = {
 
 const Container = () => {
   const [data, setData] = useState<UrlData[]>([]);
+  const [reload, setReload] = useState<boolean>(false);
+
+  const updateReloadState = () : void => {
+    setReload(!reload);
+  };
+
   const fetchData = async () => {
     const responseBody = await axios.get(`${apiUrl}/shortUrl`);
     setData(responseBody.data);
@@ -23,12 +29,12 @@ const Container = () => {
 
   useEffect(() => {
     fetchData();
-  }, []);
+  }, [reload]);
 
   return (
     <> 
     <FormContainer />
-    <DataTable data={data} />
+    <DataTable data={data} updateReloadState={updateReloadState} />
   </>
 );
 };
