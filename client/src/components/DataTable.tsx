@@ -18,7 +18,7 @@ const DataTable = ({ data, updateReloadState }: DataTable) => {
                 <Link to={item.fullUrl} target="_blank" rel="noreferrer noopener" >{item.fullUrl}</Link>
                 </td>
                 <td className="px-6 py-3 break-words">
-                <Link to={`${apiUrl}/shortUrl/${item.shortUrl}`}target="_blank" rel="noreferrer noopener" >{item.shortUrl}</Link>
+                <Link to={`${apiUrl}/api/shortUrl/${item.shortUrl}`}target="_blank" rel="noreferrer noopener" >{item.shortUrl}</Link>
                 </td> 
                 <td className="px-6 py-3">
                 <Link to='/' target="_blank" rel="noreferrer noopener" >{item.clicks}</Link>
@@ -74,7 +74,7 @@ const DataTable = ({ data, updateReloadState }: DataTable) => {
 
    const copyToClipboard = async(url: string) => {
       try {
-         await navigator.clipboard.writeText(`${apiUrl}/shortUrl/${url}`);
+         await navigator.clipboard.writeText(`${apiUrl}/api/shortUrl/${url}`);
           alert("Copied to clipboard");
       } catch (error) {
         console.log(error);
@@ -84,7 +84,7 @@ const DataTable = ({ data, updateReloadState }: DataTable) => {
 
     const deleteUrl = async(id: string) => {
         try {
-          await axios.delete(`${apiUrl}/shortUrl/${id}`);
+          await axios.delete(`${apiUrl}/api/shortUrl/${id}`);
           alert("Deleted Successfully");
           updateReloadState();
         } catch (error) {

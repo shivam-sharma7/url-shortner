@@ -25,7 +25,7 @@ const notify = () => toast.success('URL has been shortened', {
 const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
     try {  
-      await axios.post(`${apiUrl}/shortUrl`, {
+      await axios.post(`${apiUrl}/api/shortUrl`, {
         // database field
            fullUrl: fullUrl
       });
