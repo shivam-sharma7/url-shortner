@@ -24,7 +24,7 @@ const Container = () => {
   const fetchData = async () => {
     const responseBody = await axios.get(`${apiUrl}/api/shortUrl`);
     setData(responseBody.data);
-    
+    setReload(false); 
   };
 
   useEffect(() => {

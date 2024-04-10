@@ -2,28 +2,23 @@
  This is a URL shortener web-based application tool designed to condense long website addresses into shorter, more manageable links. 
 
 ## Tech stack used
+* [React.js](https://react.dev/)
+* [Tailwind CSS](https://tailwindcss.com/)
+* [Vitest](https://vitest.dev/)
+* [Node.Js](https://nodejs.org/en/download)
+* [Express.js](https://expressjs.com/)
+* [MongoDB](https://www.mongodb.com/cloud/atlas/register)
 
- <div align="left"> 
-<img src="https://img.shields.io/badge/-ReactJs-61DAFB?logo=react&logoColor=white&style=for-the-badge">
- <img src="https://img.shields.io/badge/TailwindCSS-1572B6.svg?style=for-the-badge&logo=tailwindcss&logoColor=white">
- <img src="https://img.shields.io/badge/TypeScript-1572B6.svg?style=for-the-badge&logo=TypeScript&logoColor=white"> 
-  <img src="https://img.shields.io/badge/Vitest-1572B6.svg?style=for-the-badge&logo=Vitest&logoColor=white"> 
-  <img src="https://img.shields.io/badge/-Express.js-E34F28?logo=express&logoColor=white&style=for-the-badge">
-   <img src="https://img.shields.io/badge/Nodejs-E3428?logo=node.js&logoColor=white&style=for-the-badge">
-    <img src="https://img.shields.io/badge/MongoDB-E3428?logo=mongoDB&logoColor=white&style=for-the-badge">
-    <!-- <img src="https://img.shields.io/badge/Playwright-E34F28?logo=playwright&logoColor=white&style=for-the-badge"> -->
-</div>
-
-## Set up backend
+## Local Development
 >You need to cretae a .env file in server directory and set following string.
 ```
 MONGO_DB=mongodb+srv://<username>:<password>@url-shortner.ijruark.mongodb.net/?retryWrites=true&w=majority&appName=url-shortner
-
 PORT=5000
+CORS_ORIGIN=http://localhost:3000
 ```
 Clone the project 
 ```bash
-git clone  https://github.com/shivam-sharma7/url-shortner.git
+git clone  https://github.com/your_username/url-shortner.git
 ````
 Navigate to server directory
 ```bash
@@ -34,7 +29,7 @@ install dependencies
 npm install
 ```
 run start command
-```
+```bash
 npm run dev
 ```
 Navigate to client directory
