@@ -38,7 +38,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
   }
 
   return (
-    <div className="container mx-auto p-2">
+    <div className="container mx-auto p-4">
         <div className="bg-[url('../src/assets/bg-img.jpg')] bg-center my-8 pb-5 rounded-xl bg-cover">
            <h1 className="text-white text-center text-4xl p-4 font-medium">URL Shortener</h1>
            <p className="text-white text-center text-2xl pb-2">paste your link to be shorten </p>
@@ -55,7 +55,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                   onChange={(e) => setFullUrl(e.target.value)}
                   />
                   <button type="submit" onClick={notify} className="absolute top-0 end-0
-                  bg-green-600 hover:bg-blue-700 p-4 rounded overflow-hidden">Shorten URL</button>
+                  bg-green-700 hover:bg-blue-700 p-4 rounded-lg overflow-hidden font-semibold">Shorten URL</button>
                   <ToastContainer />
               </div>
             </div>

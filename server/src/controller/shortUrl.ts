@@ -10,7 +10,7 @@ export const createUrl = async (req: Request, res: Response) => {
       res.send(urlFound);
     } else {
       const shortUrl = await shortUrlModel.create({ fullUrl });
-      res.status(201).send(shortUrl);
+      res.status(201).json({message: "Url shortened successfully", shortUrl});
       shortUrl.save();
     }
   } catch (error) {

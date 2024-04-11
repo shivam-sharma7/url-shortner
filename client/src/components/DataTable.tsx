@@ -92,7 +92,7 @@ const DataTable = ({ data, updateReloadState }: DataTable) => {
         }
       };
     return (
-      <div className="container mx-auto pt-2 pb-2">
+      <div className="container mx-auto pb-2 ">
         <div className="relative overflow-x-auto shadow-sm sm:rounded-lg">
           <table className="w-full table-fixed text-sm text-left rtl:text-right ">
             <thead className="text-md uppercase">
