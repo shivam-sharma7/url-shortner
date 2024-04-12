@@ -1,5 +1,7 @@
 ## URL Shortner 
- This is a web-based URL shortener application tool designed to condense long website addresses into shorter, more manageable links. 
+![Tiddly URL](./client/src/assets/website.png)
+
+ This is a web-based URL shortener application tool, designed to condense long website addresses into shorter, more manageable links. You can check application is [Live](https://tiddly-url.onrender.com/)
 
 ## Tech stack used
 * [React.js](https://react.dev/)

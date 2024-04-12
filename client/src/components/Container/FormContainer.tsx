@@ -54,10 +54,10 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
 
   return (
     <div className="container mx-auto p-4">
-        <div className="bg-[url('../src/assets/bg-img.jpg')] bg-center my-8 pb-5 rounded-xl bg-cover">
-           <h1 className="text-white text-center text-4xl p-4 font-medium">URL Shortener</h1>
-           <p className="text-white text-center text-2xl pb-2">paste your link to be shorten </p>
-           <p className="text-white text-center pb-5">use free URL shortener tool to create a shortened & neat link</p>
+        <div className="bg-[url('../src/assets/bg.jpg')] bg-center my-8 pb-5 rounded-xl bg-cover">
+           <h1 className="text-white text-center text-3xl p-4 font-medium">URL- link shortener service</h1>
+           <p className="text-white text-center text-2xl pb-2 font-medium">paste your link to be shorten </p>
+           <p className="text-white text-center pb-5  font-medium">use free URL shortener tool to create a shortened & neat link</p>
            <form onSubmit={handleSubmit}>
             <div className="flex">
               <div className="relative w-full">
