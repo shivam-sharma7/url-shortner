@@ -12,23 +12,38 @@ const FormContainer = ({ updateReloadState }: formContainerProps) => {
 
 const [fullUrl, setFullUrl] = useState('')
 
-const notify = () => toast.success('URL has been shortened', {
-  position: "top-left",
-  autoClose: 2000,
-  hideProgressBar: false,
-  closeOnClick: true,
-  pauseOnHover: true,
-  draggable: true,
-  progress: undefined,
-});
-
 const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
+    if (!fullUrl || !fullUrl.trim()) {
+      toast.error('Url cannot be empty', {
+        position: "top-left",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+    }
+
     try {  
-      await axios.post(`${apiUrl}/api/shortUrl`, {
-        // database field
+     const response = await axios.post(`${apiUrl}/api/shortUrl`, {
+        // database field name
            fullUrl: fullUrl
       });
+      
+    if (response.status === 201) {
+      toast.success('URL has been shortened', {
+        position: "top-left",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
+     }
+
       setFullUrl('')
       updateReloadState()
     
@@ -54,7 +69,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                   value={fullUrl}
                   onChange={(e) => setFullUrl(e.target.value)}
                   />
-                  <button type="submit" onClick={notify} className="absolute top-0 end-0
+                  <button type="submit" className="absolute top-0 end-0
                   bg-green-700 hover:bg-blue-700 p-4 rounded-lg overflow-hidden font-semibold">Shorten URL</button>
                   <ToastContainer />
               </div>

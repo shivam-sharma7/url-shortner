@@ -1,14 +1,13 @@
 import { Request, Response } from "express";
 import { shortUrlModel } from "../models/shortUrl";
+ 
 
 export const createUrl = async (req: Request, res: Response) => {
   try {
     const { fullUrl } = req.body;
-    const urlFound = await shortUrlModel.find({ fullUrl });
-    if (urlFound.length < 0) {
-      res.status(409);
-      res.send(urlFound);
-    } else {
+    if(!fullUrl || !fullUrl.trim()) {
+      return res.status(400).json({ message: "Please provide a valid URL" });
+     } else {
       const shortUrl = await shortUrlModel.create({ fullUrl });
       res.status(201).json({message: "Url shortened successfully", shortUrl});
       shortUrl.save();
