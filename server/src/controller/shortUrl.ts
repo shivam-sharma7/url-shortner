@@ -5,8 +5,8 @@ import { shortUrlModel } from "../models/shortUrl";
 export const createUrl = async (req: Request, res: Response) => {
   try {
     const { fullUrl } = req.body;
-    if(!fullUrl || !fullUrl.trim()) {
-      return res.status(400).json({ message: "Please provide a valid URL" });
+    if(!fullUrl || !fullUrl.trim() || !fullUrl.includes("https://")) {
+      return res.status(400).json({ message: "Please provide a valid and secure URL" });
      } else {
       const shortUrl = await shortUrlModel.create({ fullUrl });
       res.status(201).json({message: "Url shortened successfully", shortUrl});

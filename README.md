@@ -11,7 +11,7 @@
 * [Express.js](https://expressjs.com/)
 * [MongoDB](https://www.mongodb.com/cloud/atlas/register)
 
-## Local Development
+## Local Development Setup
 Clone the project here [Fork](https://github.com/shivam-sharma7/url-shortner/fork)
 ```bash
 git clone  https://github.com/your_username/url-shortner.git

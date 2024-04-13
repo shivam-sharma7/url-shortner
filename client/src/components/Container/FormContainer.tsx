@@ -14,8 +14,8 @@ const [fullUrl, setFullUrl] = useState('')
 
 const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (!fullUrl || !fullUrl.trim()) {
-      toast.error('Url cannot be empty', {
+    if (!fullUrl || !fullUrl.trim() || !fullUrl.includes("https://example.com")) {
+      toast.error('Provide a valid and secure URL', {
         position: "top-left",
         autoClose: 2000,
         hideProgressBar: false,
