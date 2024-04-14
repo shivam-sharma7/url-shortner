@@ -2,6 +2,14 @@ import { UrlData } from "../components/Container/Container";
 import { Link } from "react-router-dom";
 import { apiUrl } from "../api";
 import axios from "axios";
+import {
+  LinkedinIcon,
+  LinkedinShareButton,
+  WhatsappShareButton,
+  WhatsappIcon,
+  TwitterShareButton,
+  TwitterIcon,
+} from "react-share";
 
 type DataTable = {
   data: UrlData[];
@@ -9,23 +17,35 @@ type DataTable = {
 };
 
 const DataTable = ({ data, updateReloadState }: DataTable) => {
-   const renderTableData = () => {
-      return data.map((item) => {
-        return (
-            <tr key={item._id} 
-              className="border-b text-white bg-gray-600 hover:bg-blue-800 hover:text-gray-7000 ">
-               <td className="px-6 py-3 break-words">
-                <Link to={item.fullUrl} target="_blank" rel="noreferrer noopener" >{item.fullUrl}</Link>
-                </td>
-                <td className="px-6 py-3 break-words">
-                <Link to={`${apiUrl}/api/shortUrl/${item.shortUrl}`}target="_blank" rel="noreferrer noopener" >{item.shortUrl}</Link>
-                </td> 
-                <td className="px-6 py-3">
-                <Link to='/' target="_blank" rel="noreferrer noopener" >{item.clicks}</Link>
-                </td> 
-                <td className="flex gap-2 px-6 py-3 break-words">
-                <div className="flex content-center">
-               <div
+  const renderTableData = () => {
+    return data.map((item) => {
+      return (
+        <tr
+          key={item._id}
+          className="border-b text-white bg-gray-600 hover:bg-blue-800 hover:text-gray-7000 "
+        >
+          <td className="px-6 py-3 break-words">
+            <Link to={item.fullUrl} target="_blank" rel="noreferrer noopener">
+              {item.fullUrl}
+            </Link>
+          </td>
+          <td className="px-6 py-3 break-words">
+            <Link
+              to={`${apiUrl}/api/shortUrl/${item.shortUrl}`}
+              target="_blank"
+              rel="noreferrer noopener"
+            >
+              {item.shortUrl}
+            </Link>
+          </td>
+          <td className="px-6 py-3">
+            <Link to="/" target="_blank" rel="noreferrer noopener">
+              {item.clicks}
+            </Link>
+          </td>
+          <td className="flex gap-2 px-6 py-4 break-words">
+            <div className="flex content-center">
+              <div
                 className="cursor-pointer px-2"
                 onClick={() => copyToClipboard(item.shortUrl)}
               >
@@ -65,59 +85,79 @@ const DataTable = ({ data, updateReloadState }: DataTable) => {
                 </svg>
               </div>
             </div>
+          </td>
+          <td className="px-6 ">
+            <div className="flex content-center gap-2">
+              <TwitterShareButton
+                url={item.fullUrl}
+              >
+                <TwitterIcon size={30} />
+              </TwitterShareButton>
 
-                </td>  
-            </tr>
-        )
-      })
-   }
+              <LinkedinShareButton
+                url={item.fullUrl}
+              >
+                <LinkedinIcon size={30} />
+              </LinkedinShareButton>
 
-   const copyToClipboard = async(url: string) => {
-      try {
-         await navigator.clipboard.writeText(`${apiUrl}/api/shortUrl/${url}`);
-          alert("Copied to clipboard");
-      } catch (error) {
-        console.log(error);
-          
-      }
-   };
-
-    const deleteUrl = async(id: string) => {
-        try {
-          await axios.delete(`${apiUrl}/api/shortUrl/${id}`);
-          alert("Deleted Successfully");
-          updateReloadState();
-        } catch (error) {
-          console.log(error);
-        }
-      };
-    return (
-      <div className="container mx-auto pb-2 ">
-        <div className="relative overflow-x-auto shadow-sm sm:rounded-lg">
-          <table className="w-full table-fixed text-sm text-left rtl:text-right ">
-            <thead className="text-md uppercase">
-              <tr>
-                <th scope="col" className="px-6 py-3 w-6/12">
-                  FullUrl
-                </th>
-                <th scope="col" className="px-6 py-3 w-6/12">
-                  ShortUrl
-                </th>
-                <th scope="col" className="px-6 py-3 w-6/12">
-                  Clicks
-                </th>
-                <th scope="col" className="px-6 py-3 w-6/12">
-                  Action
-                </th>
-              </tr>
-            </thead>
-            <tbody>   
-            {renderTableData()} 
-            </tbody>
-          </table>
-        </div>
-      </div>
-    );
+              <WhatsappShareButton
+                url={ item.fullUrl}
+              >
+                <WhatsappIcon size={30} />
+              </WhatsappShareButton>
+            </div>
+          </td>
+        </tr>
+      );
+    });
   };
 
-export default DataTable
+  const copyToClipboard = async (url: string) => {
+    try {
+      await navigator.clipboard.writeText(`${apiUrl}/api/shortUrl/${url}`);
+      alert("Copied to clipboard");
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteUrl = async (id: string) => {
+    try {
+      await axios.delete(`${apiUrl}/api/shortUrl/${id}`);
+      alert("Deleted Successfully");
+      updateReloadState();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+  return (
+    <div className="container mx-auto pb-2 ">
+      <div className="relative overflow-x-auto shadow-sm sm:rounded-lg">
+        <table className="w-full table-fixed text-sm text-left rtl:text-right ">
+          <thead className="text-md uppercase">
+            <tr>
+              <th scope="col" className="px-6 py-3 w-6/12">
+                FullUrl
+              </th>
+              <th scope="col" className="px-6 py-3 w-6/12">
+                ShortUrl
+              </th>
+              <th scope="col" className="px-6 py-3 w-6/12">
+                Clicks
+              </th>
+              <th scope="col" className="px-6 py-3 w-6/12">
+                Action
+              </th>
+              <th scope="col" className="px-4 py-3 w-6/12">
+                Share on Social
+              </th>
+            </tr>
+          </thead>
+          <tbody>{renderTableData()}</tbody>
+        </table>
+      </div>
+    </div>
+  );
+};
+
+export default DataTable;
