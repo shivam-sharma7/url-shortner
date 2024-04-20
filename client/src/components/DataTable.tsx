@@ -86,8 +86,8 @@ const DataTable = ({ data, updateReloadState }: DataTable) => {
               </div>
             </div>
           </td>
-          <td className="px-6 ">
-            <div className="flex content-center gap-2">
+          <td className="">
+            <div className="flex gap-2">
               <TwitterShareButton
                 url={item.fullUrl}
               >
@@ -148,7 +148,7 @@ const DataTable = ({ data, updateReloadState }: DataTable) => {
               <th scope="col" className="px-6 py-3 w-6/12">
                 Action
               </th>
-              <th scope="col" className="px-4 py-3 w-6/12">
+              <th scope="col" className="py-3 w-6/12">
                 Share on Social
               </th>
             </tr>
