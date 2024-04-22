@@ -64,7 +64,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                 <div className="absolute text-gray-800 my-4 mx-1 font-bold">Urlshortener.link / </div>
                 <input 
                   type="text" 
-                  className="w-full p-4 ps-36 rounded-lg" 
+                  className="w-full p-4 ps-36 rounded-lg focus:outline-none" 
                   placeholder="paste your link here..."
                   value={fullUrl}
                   onChange={(e) => setFullUrl(e.target.value)}
