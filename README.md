@@ -1,5 +1,6 @@
 ## URL Shortner 
-![Tiddly URL](./client/src/assets/website.png)
+ ![image](https://github.com/shivam-sharma7/url-shortner/assets/91419219/184bf55d-d11a-4b86-a5a4-7d056f73093d)
+
 
  This is a web-based URL shortener application tool, designed to condense long website addresses into shorter, more manageable links. You can check application is [Live](https://tiddly-url.onrender.com/)
 
@@ -52,7 +53,7 @@ Open developement server
 ```bash
 npm run dev
 ```
-After changes you can run the following test command
+run the following test command
 ```bash
 npm run test
 ```
