@@ -14,7 +14,7 @@ const [fullUrl, setFullUrl] = useState('')
 
 const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault()
-    if (!fullUrl || !fullUrl.trim() || !fullUrl.includes("https://example.com")) {
+    if (!fullUrl || !fullUrl.trim() || !fullUrl.includes("https://")) {
       toast.error('Provide a valid and secure URL', {
         position: "top-left",
         autoClose: 2000,
@@ -27,12 +27,11 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     }
 
     try {  
-     const response = await axios.post(`${apiUrl}/api/shortUrl`, {
+      await axios.post(`${apiUrl}/api/shortUrl`, {
         // database field name
            fullUrl: fullUrl
       });
       
-    if (response.status === 201) {
       toast.success('URL has been shortened', {
         position: "top-left",
         autoClose: 2000,
@@ -42,7 +41,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
         draggable: true,
         progress: undefined,
       });
-     }
+    
 
       setFullUrl('')
       updateReloadState()
@@ -64,7 +63,7 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                 <div className="absolute text-gray-800 my-4 mx-1 font-bold">Urlshortener.link / </div>
                 <input 
                   type="text" 
-                  className="w-full p-4 ps-36 rounded-lg focus:outline-none" 
+                  className="w-full p-4 ps-36 rounded-lg" 
                   placeholder="paste your link here..."
                   value={fullUrl}
                   onChange={(e) => setFullUrl(e.target.value)}
