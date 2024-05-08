@@ -2,6 +2,9 @@ import { UrlData } from "../components/Container/Container";
 import { Link } from "react-router-dom";
 import { apiUrl } from "../api";
 import axios from "axios";
+import { toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css';
+
 import {
   LinkedinIcon,
   LinkedinShareButton,
@@ -43,7 +46,7 @@ const DataTable = ({ data, updateReloadState }: DataTable) => {
               {item.clicks}
             </Link>
           </td>
-          <td className="flex gap-2 px-6 py-4 break-words">
+          <td className="flex gap-2 px-6 py-8 break-words">
             <div className="flex content-center">
               <div
                 className="cursor-pointer px-2"
@@ -86,7 +89,7 @@ const DataTable = ({ data, updateReloadState }: DataTable) => {
               </div>
             </div>
           </td>
-          <td className="">
+          <td>
             <div className="flex gap-2">
               <TwitterShareButton
                 url={item.fullUrl}
@@ -115,7 +118,15 @@ const DataTable = ({ data, updateReloadState }: DataTable) => {
   const copyToClipboard = async (url: string) => {
     try {
       await navigator.clipboard.writeText(`${apiUrl}/api/shortUrl/${url}`);
-      alert("Copied to clipboard");
+      toast.success('URL has been Copied', {
+        position: "top-left",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
     } catch (error) {
       console.log(error);
     }
@@ -124,7 +135,15 @@ const DataTable = ({ data, updateReloadState }: DataTable) => {
   const deleteUrl = async (id: string) => {
     try {
       await axios.delete(`${apiUrl}/api/shortUrl/${id}`);
-      alert("Deleted Successfully");
+      toast.success('URL has been deleted', {
+        position: "top-left",
+        autoClose: 2000,
+        hideProgressBar: false,
+        closeOnClick: true,
+        pauseOnHover: true,
+        draggable: true,
+        progress: undefined,
+      });
       updateReloadState();
     } catch (error) {
       console.log(error);
