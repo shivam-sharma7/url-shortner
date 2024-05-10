@@ -63,13 +63,13 @@ const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
                 <div className="absolute text-gray-800 my-4 mx-1 font-bold">Urlshortener.link / </div>
                 <input 
                   type="text" 
-                  className="w-full p-4 ps-36 rounded-lg" 
+                  className="w-full p-4 ps-36 rounded-lg outline-none" 
                   placeholder="paste your link here..."
                   value={fullUrl}
                   onChange={(e) => setFullUrl(e.target.value)}
                   />
                   <button type="submit" className="absolute top-0 end-0
-                  bg-green-700 hover:bg-blue-700 p-4 rounded-lg overflow-hidden font-semibold">Shorten URL</button>
+                  bg-green-700 hover:bg-green-500 p-4 rounded-lg overflow-hidden font-semibold">Shorten URL</button>
                   <ToastContainer />
               </div>
             </div>
